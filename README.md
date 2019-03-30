@@ -19,7 +19,7 @@ pip install django-serviceless-distributor
 Configure your `urls.py`
 ```py
   ....
-  path("serviceless_distributor", include("serviceless_distributor.urls")),
+  path("serviceless_distributor", include("django_serviceless_distributor.urls")),
   ....
 ```
 
@@ -27,7 +27,7 @@ Configure your `settings.py`
 ```py
 # Nodes IPs (Do not use load balancer IP, we couldn't know
 # if all nodes affected if you use load balancer IP)
-SERVICELESS_DISTRIBUTOR_NODES = ["http://10.0.0.0", "http://10.0.0.1", ...]
+SERVICELESS_DISTRIBUTOR_NODES = ["http://10.0.0.0", "http://10.0.0.1", ....]
 
 # Headers to use while sending data
 # (This can be used to change "Host" to pass ALLOWED_HOSTS restriction)
@@ -36,7 +36,7 @@ SERVICELESS_DISTRIBUTOR_HEADERS = {}
 
 Register functions you want to distributed
 ```py
-from serviceless_distributor.distributor import Distributor
+from serviceless_distributor import Distributor
 
 @Distributor.register_function()
 def sum_arguments(*args):

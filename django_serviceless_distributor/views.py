@@ -1,8 +1,13 @@
+from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
+from serviceless_distributor import Distributor
 
-from .distributor import Distributor
+
+Distributor.key = getattr(settings, "SECRET_KEY", {})
+Distributor.nodes = getattr(settings, "SERVICELESS_DISTRIBUTOR_NODES", [])
+Distributor.headers = getattr(settings, "SERVICELESS_DISTRIBUTOR_HEADERS", {})
 
 
 @csrf_exempt

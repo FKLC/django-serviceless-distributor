@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="django-serviceless-distributor",
-    version="1.0.3",
+    version="1.0.4",
     packages=find_packages(),
     include_package_data=True,
     license="MIT License",
@@ -37,5 +37,5 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
-    install_requires=["requests", "django"],
+    install_requires=["django", "serviceless-distributor"],
 )
